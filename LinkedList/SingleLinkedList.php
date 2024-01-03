@@ -14,7 +14,7 @@ class NodeSingleLinkedList{
         return $this->node;
     }
 
-    public function setNode($node)
+    public function setNode($node): void
     {
         $this->node = $node;
     }
@@ -62,6 +62,25 @@ class SingleLinkedList {
 
             $current->setNext($newNode);
         }
+    }
+
+    public function find($value): bool
+    {
+        if($this->head == null){
+            return false;
+        }else{
+            $current = $this->head;
+            while($current->getNext() != null){
+                if($current->getNode() == $value){
+                    return true;
+                }
+                $current = $current->getNext();
+            }
+            if($current->getNode() == $value){
+                return true;
+            }
+        }
+        return false;
     }
 
 }

@@ -10,5 +10,5 @@ $person1->prepend("dewi");
 
 $person2 = new SingleLinkedList();
 $person2->append("Syahira");
-$person2->append("Isnaeni");
+var_dump($person2->find("Syahira"));
 var_dump($person2);
