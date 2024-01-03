@@ -83,4 +83,75 @@ class SingleLinkedList {
         return false;
     }
 
+    public function delete($value): bool
+    {
+        if($this->head == null){
+            return false;
+        }else{
+            //klo yang dihapus head satu data
+            if($this->head->getNext() == null){
+                if($this->head->getNode() == $value){
+                    $this->head = null;
+                    return true;
+                }
+            }
+
+            $current = $this->head;
+            $temp = $this->head;
+            while($current->getNext() != null){
+                if($current->getNode() == $value){
+                    if($current == $this->head){
+                        $this->head = $this->head->getNext();
+                    }
+
+                    $temp->setNext($current->getNext());
+                    unset($current);
+                    return true;
+                }
+                $temp = $current;
+                $current = $current->getNext();
+            }
+
+            if($current->getNode() == $value){
+                $temp->setNext(null);
+                unset($current);
+                return true;
+            }
+
+        }
+        return false;
+    }
+
+    public function deleteTop(){
+
+    }
+
+    public function deleteBottom(){
+
+    }
+
+    public function update($value){
+
+    }
+
+    public function top(){
+
+    }
+
+    public function popTop(){
+
+    }
+
+    public function bottom(){
+
+    }
+
+    public function popBottom(){
+
+    }
+
+    public function traverse(){
+
+    }
+
 }

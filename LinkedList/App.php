@@ -11,4 +11,11 @@ $person1->prepend("dewi");
 $person2 = new SingleLinkedList();
 $person2->append("Syahira");
 var_dump($person2->find("Syahira"));
-var_dump($person2);
+//var_dump($person2);
+
+$person3 = new SingleLinkedList();
+$person3->append("syahira");
+$person3->append("isnaeni");
+$person3->append("dewi");
+var_dump($person3->delete("isnaeni"));
+var_dump($person3);
