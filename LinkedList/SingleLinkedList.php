@@ -122,12 +122,35 @@ class SingleLinkedList {
         return false;
     }
 
-    public function deleteTop(){
-
+    public function deleteTop(): bool{
+        if($this->head->getNext() == null){
+            $this->head = null;
+            return true;
+        }else{
+            $temp = $this->head->getNext();
+            unset($this->head);
+            $this->head = $temp;
+            return true;
+        }
+        return false;
     }
 
-    public function deleteBottom(){
-
+    public function deleteBottom(): bool{
+        if ($this->head->getNext() == null){
+            $this->head = null;
+            return true;
+        }else{
+            $current = $this->head;
+            $temp = $this->head;
+            while($current->getNext() != null){
+                $temp = $current;
+                $current = $current->getNext();
+            }
+            $temp->setNext(null);
+            unset($current);
+            return true;
+        }
+        return false;
     }
 
     public function update($value){
