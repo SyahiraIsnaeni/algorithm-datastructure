@@ -1,7 +1,7 @@
 <?php
 
 class NodeSingleLinkedList{
-    private $node;
+    private mixed $node;
     private $next;
     public function __construct($node)
     {
@@ -153,12 +153,41 @@ class SingleLinkedList {
         return false;
     }
 
-    public function update($value){
+    public function update($value, $newValue): bool{
+        if($this->head == null){
+            return false;
+        }else{
+            //klo yang diupdate head satu data
+            if($this->head->getNext() == null){
+                if($this->head->getNode() == $value){
+                    $this->head->setNode($newValue);
+                    return true;
+                }
+            }
 
+            $current = $this->head;
+            while($current->getNext() != null){
+                if($current->getNode() == $value){
+                    $current->setNode($newValue);
+                    return true;
+                }
+                $current = $current->getNext();
+            }
+
+            if($current->getNode() == $value){
+                $current->setNode($newValue);
+                return true;
+            }
+        }
+        return false;
     }
 
     public function top(){
-
+        if ($this->head == null){
+            return null;
+        }else{
+            return $this->head->getNode();
+        }
     }
 
     public function popTop(){
