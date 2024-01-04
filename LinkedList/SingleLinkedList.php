@@ -191,19 +191,73 @@ class SingleLinkedList {
     }
 
     public function popTop(){
-
+        if ($this->head == null){
+            return null;
+        }elseif($this->head->getNext() == null){
+            $data = $this->head->getNode();
+            $this->head = null;
+            return $data;
+        }else{
+            $data = $this->head->getNode();
+            $temp = $this->head->getNext();
+            unset($this->head);
+            $this->head = $temp;
+            return $data;
+        }
     }
 
     public function bottom(){
-
+        if($this->head == null){
+            return null;
+        }else{
+            if($this->head->getNext() == null){
+                return $this->head->getNode();
+            }
+            $current = $this->head;
+            while($current->getNext() != null){
+                $current = $current->getNext();
+            }
+            return $current->getNode();
+        }
     }
 
     public function popBottom(){
+        if($this->head == null){
+            return null;
+        }else{
+            if($this->head->getNext() == null){
+                $data = $this->head->getNode();
+                $this->head = null;
+                return $data;
+            }
 
+            $current = $this->head;
+            $temp = $this->head;
+            while($current->getNext() != null){
+                $temp = $current;
+                $current = $current->getNext();
+            }
+
+            $temp->setNext(null);
+            $data = $current->getNode();
+            unset($current);
+            return $data;
+        }
     }
 
     public function traverse(){
+        if($this->head == null){
+            return;
+        }
 
+        $data = [];
+        $current = $this->head;
+        while($current->getNext() != null){
+            $data[] = $current->getNode();
+            $current = $current->getNext();
+        }
+        $data[] = $current->getNode();
+        return $data;
     }
 
 }
