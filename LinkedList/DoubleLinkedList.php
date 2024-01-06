@@ -108,8 +108,47 @@ class DoubleLinkedList{
         return false;
     }
 
-    public function delete($value){
+    public function delete($value): bool{
+        if($this->head != null){
+            if($this->head->getNext() == null){
+                if ($this->head->getNode() == $value){
+                    $this->head = null;
+                    $this->tail = null;
+                    return true;
+                }
+            }else{
+                if($this->head->getNode() == $value){
+                    $this->head->getNext()->setPrev(null);
+                    $temp = $this->head->getNext();
+                    unset($this->head);
+                    $this->head = $temp;
+                    return true;
+                }
+            }
 
+            if($this->tail->getNode() == $value){
+                $temp = $this->tail->getPrev();
+                unset($this->tail);
+                $this->tail = $temp;
+                $this->tail->setNext(null);
+                return true;
+            }
+
+            $current = $this->head;
+            while ($current->getNext() != null){
+                if($current->getNode() == $value){
+                    $current->getPrev()->setNext($current->getNext());
+                    $current->getNext()->setPrev($current->getPrev());
+                    unset($current);
+                    return true;
+                }
+                $current = $current->getNext();
+            }
+
+            return false;
+        }
+
+        return false;
     }
 
     public function update($value, $newValue){

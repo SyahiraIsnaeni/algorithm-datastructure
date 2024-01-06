@@ -1,6 +1,6 @@
 <?php
 
-require_once "SingleLinkedList.php";
+require_once "../SingleLinkedList.php";
 
 //TEST PREPEND SINGLE LINKED LIST
 $person1 = new SingleLinkedList();
