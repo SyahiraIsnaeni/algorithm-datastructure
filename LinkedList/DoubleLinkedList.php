@@ -155,4 +155,32 @@ class DoubleLinkedList{
 
     }
 
+    public function deleteTop(){
+
+    }
+
+    public function deleteBottom(){
+
+    }
+
+    public function top(){
+
+    }
+
+    public function popTop(){
+
+    }
+
+    public function bottom(){
+
+    }
+
+    public function popBottom(){
+
+    }
+
+    public function traverse(){
+
+    }
+
 }
