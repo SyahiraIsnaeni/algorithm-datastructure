@@ -278,7 +278,24 @@ class DoubleLinkedList{
     }
 
     public function traverse(){
+        $data = [];
 
+        if($this->head != null){
+            if ($this->head->getNext() == null){
+                $data[] = $this->head->getNode();
+                return $data;
+            }else{
+                $current = $this->head;
+                while ($current->getNext() != null){
+                    $data[] = $current->getNode();
+                    $current = $current->getNext();
+                }
+                $data[] = $current->getNode();
+            }
+        }else{
+            $data = null;
+        }
+        return $data;
     }
 
 }

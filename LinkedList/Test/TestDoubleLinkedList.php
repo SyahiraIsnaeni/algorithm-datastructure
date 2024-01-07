@@ -120,3 +120,12 @@ $person11->append("Syahira");
 $person11->append("Isnaeni");
 //var_dump($person11->popBottom());
 //var_dump($person11);
+
+$person12 = new DoubleLinkedList();
+var_dump($person12->traverse());
+$person12->append("Syahira");
+$person12->append("Isnaeni");
+$person12->append("Dewi");
+if ($person12->traverse() != null){
+    echo implode(", ", $person12->traverse());
+}
