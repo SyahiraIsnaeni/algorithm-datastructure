@@ -76,3 +76,47 @@ $person6->append("Isnaeni");
 $person6->append("Dewi");
 //var_dump($person6->deleteTop());
 //var_dump($person6);
+
+//TEST DELETE BOTTOM DOUBLE LINKED LIST
+$person7 = new DoubleLinkedList();
+//var_dump($person7->deleteBottom());
+$person7->append("Syahira");
+//var_dump($person7);
+//var_dump($person7->deleteBottom());
+//var_dump($person7);
+$person7->append("Isnaeni");
+$person7->append("Dewi");
+//var_dump($person7->deleteBottom());
+//var_dump($person7);
+
+//TEST TOP DOUBLE LINKED LIST
+$person8 = new DoubleLinkedList();
+//var_dump($person8->top());
+$person8->append("Syahira");
+$person8->append("Isnaeni");
+//var_dump($person8->top());
+
+//TEST POP TOP DOUBLE LINKED LIST
+$person9 = new DoubleLinkedList();
+//var_dump($person9->popTop());
+$person9->append("Syahira");
+$person9->append("Isnaeni");
+//var_dump($person9->popTop());
+//var_dump($person9);
+
+//TEST BOTTOM DOUBLE LINKED LIST
+$person10 = new DoubleLinkedList();
+//var_dump($person10->bottom());
+$person10->append("Syahira");
+$person10->append("Isnaeni");
+//var_dump($person10->bottom());
+
+
+$person11 = new DoubleLinkedList();
+//var_dump($person11->popBottom());
+$person11->append("Syahira");
+//var_dump($person11->popBottom());
+//var_dump($person11);
+$person11->append("Isnaeni");
+//var_dump($person11->popBottom());
+//var_dump($person11);

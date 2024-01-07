@@ -201,24 +201,80 @@ class DoubleLinkedList{
         return false;
     }
 
-    public function deleteBottom(){
-
+    public function deleteBottom(): bool{
+        if($this->head != null){
+            if ($this->tail->getPrev() == null){
+                unset($this->tail);
+                unset($this->head);
+                $this->head = null;
+                $this->tail = null;
+                return true;
+            }else{
+                $temp = $this->tail->getPrev();
+                $this->tail->getPrev()->setNext(null);
+                unset($this->tail);
+                $this->tail = $temp;
+                return true;
+            }
+        }
+        return false;
     }
 
     public function top(){
-
+        if ($this->head != null){
+            return $this->head->getNode();
+        }else{
+            return null;
+        }
     }
 
     public function popTop(){
-
+        if($this->head != null){
+            if ($this->head->getNext() == null){
+                $data = $this->head->getNode();
+                unset($this->head);
+                unset($this->tail);
+                $this->head = null;
+                $this->tail = null;
+                return $data;
+            }else{
+                $data = $this->head->getNode();
+                $temp = $this->head->getNext();
+                $this->head->getNext()->setPrev(null);
+                unset($this->head);
+                $this->head = $temp;
+                return $data;
+            }
+        }
+        return null;
     }
 
     public function bottom(){
-
+        if($this->tail != null){
+            return $this->tail->getNode();
+        }
+        return null;
     }
 
     public function popBottom(){
-
+        if ($this->tail != null){
+            if($this->tail->getPrev() == null){
+                $data = $this->tail->getNode();
+                unset($this->tail);
+                unset($this->head);
+                $this->tail = null;
+                $this->head = null;
+                return $data;
+            }else{
+                $data = $this->tail->getNode();
+                $temp = $this->tail->getPrev();
+                unset($this->tail);
+                $this->tail = $temp;
+                $this->tail->setNext(null);
+                return $data;
+            }
+        }
+        return null;
     }
 
     public function traverse(){
