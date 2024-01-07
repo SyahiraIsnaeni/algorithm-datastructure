@@ -51,3 +51,28 @@ $person4->append("Isnaeni");
 $person4->append("Dewi");
 //var_dump($person4->delete("Isnaeni"));
 //var_dump($person4);
+
+//TEST UPDATE DOUBLE LINKED LIST
+$person5 = new DoubleLinkedList();
+//var_dump($person5->update("Syahira", "Tzuyu"));
+//var_dump($person5);
+$person5->append("Syahira");
+//var_dump($person5->update("Syahira", "Tzuyu"));
+//var_dump($person5);
+$person5->append("Isnaeni");
+//var_dump($person5->update("Syahira", "Tzuyu"));
+//var_dump($person5);
+$person5->append("Dewi");
+//var_dump($person5->update("Dewi", "Tzuyu"));
+//var_dump($person5);
+
+//TEST DELETE TOP DOUBLE LINKED LIST
+$person6 = new DoubleLinkedList();
+//var_dump($person6->deleteTop());
+$person6->append("Syahira");
+//var_dump($person6->deleteTop());
+//var_dump($person6);
+$person6->append("Isnaeni");
+$person6->append("Dewi");
+//var_dump($person6->deleteTop());
+//var_dump($person6);

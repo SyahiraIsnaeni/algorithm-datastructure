@@ -112,6 +112,8 @@ class DoubleLinkedList{
         if($this->head != null){
             if($this->head->getNext() == null){
                 if ($this->head->getNode() == $value){
+                    unset($this->head);
+                    unset($this->tail);
                     $this->head = null;
                     $this->tail = null;
                     return true;
@@ -151,12 +153,52 @@ class DoubleLinkedList{
         return false;
     }
 
-    public function update($value, $newValue){
+    public function update($value, $newValue): bool{
 
+        if($this->head != null){
+            if($this->head->getNode() == $value){
+                $this->head->setNode($newValue);
+                return true;
+            }
+
+            if($this->head->getNext() != null){
+                $current = $this->head;
+                while($current->getNext() != null){
+                    if($current->getNode() == $value){
+                        $current->setNode($newValue);
+                        return true;
+                    }
+                    $current = $current->getNext();
+                }
+
+                if ($current->getNode() == $value){
+                    $current->setNode($newValue);
+                    return true;
+                }
+            }
+
+            return false;
+        }
+        return false;
     }
 
-    public function deleteTop(){
-
+    public function deleteTop(): bool{
+        if ($this->head != null){
+            if($this->head->getNext() == null){
+                unset($this->head);
+                unset($this->tail);
+                $this->head = null;
+                $this->tail = null;
+                return true;
+            }else{
+                $this->head->getNext()->setPrev(null);
+                $temp = $this->head->getNext();
+                unset($this->head);
+                $this->head = $temp;
+                return true;
+            }
+        }
+        return false;
     }
 
     public function deleteBottom(){

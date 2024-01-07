@@ -91,6 +91,7 @@ class SingleLinkedList {
             //klo yang dihapus head satu data
             if($this->head->getNext() == null){
                 if($this->head->getNode() == $value){
+                    unset($this->head);
                     $this->head = null;
                     return true;
                 }
@@ -123,32 +124,38 @@ class SingleLinkedList {
     }
 
     public function deleteTop(): bool{
-        if($this->head->getNext() == null){
-            $this->head = null;
-            return true;
-        }else{
-            $temp = $this->head->getNext();
-            unset($this->head);
-            $this->head = $temp;
-            return true;
+        if($this->head != null){
+            if($this->head->getNext() == null){
+                unset($this->head);
+                $this->head = null;
+                return true;
+            }else{
+                $temp = $this->head->getNext();
+                unset($this->head);
+                $this->head = $temp;
+                return true;
+            }
         }
         return false;
     }
 
     public function deleteBottom(): bool{
-        if ($this->head->getNext() == null){
-            $this->head = null;
-            return true;
-        }else{
-            $current = $this->head;
-            $temp = $this->head;
-            while($current->getNext() != null){
-                $temp = $current;
-                $current = $current->getNext();
+        if ($this->head != null){
+            if ($this->head->getNext() == null){
+                unset($this->head);
+                $this->head = null;
+                return true;
+            }else{
+                $current = $this->head;
+                $temp = $this->head;
+                while($current->getNext() != null){
+                    $temp = $current;
+                    $current = $current->getNext();
+                }
+                $temp->setNext(null);
+                unset($current);
+                return true;
             }
-            $temp->setNext(null);
-            unset($current);
-            return true;
         }
         return false;
     }
